@@ -13,6 +13,7 @@ DOCTYPE标签是一种标准通用标记语言的文档类型声明，它的目�
 *  PDA、手机等设备可能无法像普通电脑的浏览器一样来渲染网页（通常是因为这些设备对CSS的支持较弱）使用语义标记可以确保这些设备以一种有意义的方式来渲染网页.理想情况下,观看设备的任务是符合设备本身的条件来渲染网页.
 *  语义标记为设备提供了所需的相关信息,就省去了你自己去考虑所有可能的显示情况。搜索引擎的爬虫也依赖于标记来确定上下文和各个关键字的权重
 *  你的页面是否对爬虫容易理解非常重要,因为爬虫很大程度上会忽略用于表现的标记,而只注重语义标记。
+
 ####（4）浏览器的内核：
 *  IE: trident内核
 *  Firefox：gecko内核（网页浏览速度最快的内核）
@@ -22,17 +23,20 @@ DOCTYPE标签是一种标准通用标记语言的文档类型声明，它的目�
 ####（5）浏览器的怪异模式和标准模式：
 要想写出跨浏览器的CSS，必须知道浏览器解析CSS的两种模式：标准模式(strict mode)和怪异模式(quirks mode)。  
 标准模式是指，浏览器按W3C标准解析执行代码；怪异模式则是使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以我们称之为怪异模式。浏览器解析时到底使用标准模式还是怪异模式，与网页中的DTD声明直接相关，DTD声明定义了标准文档的类型（标准模式解析）文档类型，会使浏览器使用相应的方式加载网页并显示，忽略DTD声明,将使网页进入怪异模式(quirks mode)。
+
 ####（6）盒模型： 
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/2.png)
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/3.png)   
 
 *  W3C 盒子模型的范围包括 margin、border、padding、content，并且 content 部分不包含其他部分
 *  IE 盒子模型的范围也包括 margin、border、padding、content，和标准 W3C 盒子模型不同的是：IE 盒子模型的 content 部分包含了 border 和 padding
+
 ####（7）行内元素与块级元素
 * 块级元素：块状元素排斥其他元素与其位于同一行，可以设定元素的宽和高，块级元素一般是其他元素的容器，可容纳块级元素和行内元素。常见的块级元素有div, p ,h1~h6等
 * 行内元素：行内元素不可以设置宽和高，但可以与其他行内元素位于同一行，行内元素内一般不可以包含块级元素。行内元素的高度一般由元素内部的字体大小决定，宽度由内容的长度控制。常见的行内元素有a, em ,strong等。   
 <p>行内元素与块级元素可以通过设置display的属性来转换。<br/>
 注：img和表单元素为替换元素，有内在尺寸，具有width和height，也可以设定。</p>
+
 ####（8）xhtml,xml和html的区别：
 <p>html(超文本标记语言)——xhtml(可扩展性超文本标记语言)——xml（可扩展性标记语言）;</p>
 * Xhtml:web标准(div+css)
@@ -45,8 +49,10 @@ XHML:对大小写敏感，必须是小写的； 标签必须成对出现，有�
 * src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。
 * src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。`<script src =”js.js”></script>`当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。
 * href是Hypertext Reference的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<link href=”common.css” rel=”stylesheet”/>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。
+
 #### （10）外边距重叠：
 <p>在CSS当中，相邻的两个盒子（可能是兄弟关系也可能是祖先关系）的外边距可以结合成一个单独的外边距。</p>
+
 * 折叠结果遵循下列计算规则：
   * 两个相邻的外边距都是正数时，折叠结果是它们两者之间较大的值。
   * 两个相邻的外边距都是负数时，折叠结果是两者绝对值的较大值。
@@ -68,7 +74,9 @@ XHML:对大小写敏感，必须是小写的； 标签必须成对出现，有�
   * 外层元素 overflow:hidden;
   * 内层元素 加float:left;或display:inline-block;
   * 内层元素padding:1px;
+
 ###对css的梳理：
+
 ####（1）css选择器
 * 如果样式是行内样式（通过Style=””定义），那么a=1
 *  b为ID选择器的总数
@@ -79,13 +87,16 @@ XHML:对大小写敏感，必须是小写的； 标签必须成对出现，有�
 例如：
 `#wrapper #content .focus` (0,2,1,0)
 `.wrap div a`(0,0,1,2)
+
 ####（2）Display
 * Block:默认宽度为父元素宽度，可设置宽高，换行显示
 * Inline:默认宽度为内容宽度，不可设置宽高，同行显示
 * Inline-block:默认宽度为内容宽度，可设置宽高，同行显示，整块换行
+
 ####（3）display:none和visibility:hidden
 * Display:none隐藏对应元素但不挤占该元素原来的空间，宽高将丢失
 * Visibility:hidden 隐藏对应元素并且挤占该元素原来的空间
+
 ####（4）z-index
 * 使用条件
  * 有position属性且值不为static
@@ -93,34 +104,43 @@ XHML:对大小写敏感，必须是小写的； 标签必须成对出现，有�
  * 当一个元素是文档的根元素(html)
  * 当一个元素有一个position值且不为static,有一个z-index值且不为auto
  * 当一个元素的opacity小于1
+
 ####（5）Position：
 * Relative:元素仍在文档流中  参照物为元素本身
 * absolute:默认宽度为内容宽度  脱离文档流（后面的元素会浮上来） 参照物为一个定位祖先元素/根元素（祖先元素定位最好为relative,因为不会脱离文档流，只当参照物使用；根元素为html）
 * Fixed:默认宽度为内容宽度&nbsp;&nbsp;&nbsp;&nbsp;脱离文档流&nbsp;&nbsp;&nbsp;&nbsp;参照物为视窗
+
 ####（6）float:
 * 默认宽度为内容宽度  脱离文档流  向指定方向一直移动
 * Float元素在同一文档流
 * Float元素半脱离文档流，对于元素，脱离文档流，对内容，在文档流
+
 #####Float清除浮动的四种方式：
 * 在父元素最后增加一个空元素，div或br（本身会多出一行，height应设为0），将其css样式设为clear:both
 * 将父元素样式设为overflow:hidden,zoom:1（用于兼容ie6）
 *  给父元素增添伪类:after{display:block;clear:both;content:”";visibility:hidden;height:0;}
 *  将父元素设为浮动（本身会脱离文档流，并且宽度为内容宽度）；
+
 ####（7）布局解决方案：
+
 #####居中布局
 `<div class='parent'>`   
 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; `<div class='child'>demo</div>` <br/>
  `</div>`
 
 * 水平居中
+
 ###### inline-block+text-align
 .parent{text-align:center;}   
  .child{display:inline-block;}
+
 ######table+margin
 .child{display:table;margin:0 auto;}
+
 ######absolute+transform
 .parent{position:relative;}  
 .child{position:absolute;left:50%;transform:translateX(-50%);}
+
 ######flex+justify-content
 .parent{display:flex;justify-content:center;}
 
@@ -168,6 +188,7 @@ XHML:对大小写敏感，必须是小写的； 标签必须成对出现，有�
 ######float+overflow
 ######flex
 ##2.Html5+css3
+
 ####（1）Viewport
 * Viewport概念：设备屏幕上用来显示网页的那块区域，一般情况下，viewport大于浏览器可视区域，所以有横向滚动条
 *  Css中的1px并不等于设备的1px，早期css像素等于一个屏幕物理像素，后来移动设备分辨率提高了，但屏幕尺寸没变，所以1px代表大于1px的物理像素
@@ -176,6 +197,7 @@ XHML:对大小写敏感，必须是小写的； 标签必须成对出现，有�
  *  user-scalable指令指定用户是否可以缩放视区，即缩放Web页面的视图。
  *  initial-scale指令用于设置Web页面的初始缩放比例。
  *  maximum-scale和minimum-scale指令用于设置用户对Web页面缩放比例的限制。
+
 ####（2）rem和em
 * em  
  * 当使用em单位时，像素值是em值乘以使用em单位的元素的字体大小，例如如果一个div有18px字体大小，10em等同于180px  
@@ -185,6 +207,7 @@ Em单位是相对于使用em单位的元素的字体大小，父元素的字体�
 *  Rem:  
   * 像素值是由html元素里的字体大小决定的，此字体大小会被浏览器中字体大小的设置影响，除非显示重写一个具体单位
 例如，根元素字体大小16Px,10rem等同于160px
+
 ####（3）css3新增选择器
 * 属性选择器  
  * E[attr]  只使用属性名，但没有确定任何属性值 
@@ -197,9 +220,11 @@ Em单位是相对于使用em单位的元素的字体大小，父元素的字体�
 *   结构性伪类
   *  P:nth-child(2):找p标签父级下的第二个子元素并且这个元素还是p标签
   *  P:nth-of-type(2):找p标签父级下的第二个p元素
+
 #### （4） box-sizing
 * Content-box:标准盒模型  width/height=border+padding+content
 * Border-box:怪异盒模型  width/height=content
+
 ####  （5）  background
 *  Background-size:
  *  contain: 包含，整个背景图都要被包含在元素内，没有超出的部分。
@@ -213,6 +238,7 @@ Em单位是相对于使用em单位的元素的字体大小，父元素的字体�
  *  Padding-box:从padding区域向外裁剪背景
  *  Content-box:从content区域向外裁剪背景
  *  Text:从文本区域向外裁剪 
+
 #### （6）Transform/transition/animation
 * Transform:静态属性，用来做元素的特殊变形   eg:transform:translate3D(x,y,z)
 * Transition:简单动画属性，animation简化版
@@ -222,19 +248,24 @@ Em单位是相对于使用em单位的元素的字体大小，父元素的字体�
 100%{left:1000px;}  
 }  
 .animate{left:100px;animation:a 0.5s ease-out;}
+
 ##3.sass,compass
+
 ###Sass部分：
+
 ####（1）编译风格
 *  nested：嵌套缩进的css代码，它是默认值。
 *  expanded：没有缩进的、扩展的css代码。
 *  compact：简洁格式的css代码。
 *  compressed：压缩后的css代码。
+
 ####（2）变量
 SASS允许使用变量，所有变量以$开头。  
 eg:$blue : #1875e7;　  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;div {  
 　　　color : $blue;  
 　　}
+
 ####(3)计算功能  
 SASS允许在代码中使用算式：  
 body {  
@@ -242,18 +273,21 @@ body {
 　　　　top: 50px + 100px;  
 　　　　right: $var * 10%;  
 }
+
 ####（4）允许嵌套
 　div {  
 　　　　hi {  
 　　　　　　color:red;  
 　　　　}  
 　　}
+
 ####（5）注释
 SASS共有两种注释风格。  
 
   * 标准的CSS注释 `/* comment */` ，会保留到编译后的文件。  
   * 单行注释 // comment，只保留在SASS源文件中，编译后被省略。  
   * 在/*后面加一个感叹号，表示这是"重要注释"。即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息。
+
 ####（6）代码的重用
 * 继承  
  SASS允许一个选择器，继承另一个选择器。比如，现有class1：  
@@ -290,6 +324,7 @@ mixin的强大之处，在于可以指定参数和缺省值。
 @import命令，用来插入外部文件。 
 　　@import "path/filename.scss";  
 如果插入的是.css文件，则等同于css的import命令。　@import "foo.css";
+
 ####（7）高级用法
 * 条件语句  
 @if可以用来判断：  
@@ -330,22 +365,27 @@ SASS允许用户编写自己的函数。
 	`#sidebar` {  
 　　　　width: double(5px);  
 　　}
+
 ###compass部分
+
 ####（1）Compass采用模块结构，不同模块提供不同的功能。目前，它内置五个模块：
 * reset
 * css3
 * layout
 * typography
 * utilities
+
 ####（2）sprite
 * 合成图片：@import "logo/*.png";
 * 显示图片宽高:$logo-sprite-dimensions:true;
 * 显示hover,active:$disable-magic-sprite-selectors:false;
 * 引入合成图片：all-logo-sprites();
+
 ####（3）清除浮动
 .clearfix{
 @include legacy-pie-clearfix();
 }
+
 ####（4）table
 * @include outer-table-borders();外边框  
 * @include inner-table-borders(1px);内边框
@@ -353,25 +393,30 @@ SASS允许用户编写自己的函数。
 numeric
 * @include alternating-rows-and-columns(yellow,blue,#222222,green,red);  
 指分别对应：偶数行，奇数行，隔行列差值，th颜色，footer颜色，前三项必填
+
 ####（5）选择器
 `#{append-selector("a,p,span,div",".search")}`{
 	color:#000;
 }  
 将后面的类名添加到前面的选择器
+
 ####(6)config.rb相关配置
 * relative_assets = true图片绝对路径或相对路径
 * line_comments = false输出为css文件时是否保留注释
+
 ####（7）字体
 * $base-font-size
 * $base-line-height基线
 * @include adjust-font-size-to(48px);自动将字体大小和行距转换为em
 * @include leader()  margin-top几倍于基线的高
 * @include trailer()  margin-bottom几倍于基线的高
+
 ####（8）a
 * @include link-colors(red,blue,yellow,green,white)  
 第一个值必填，其他不填则设为继承
 * @include unstyled-link()  
 抹平超链接样式，与父文本样式一样
+
 ####（9）text
 * @include ellipsis()  
 文本超出部分显示为省略号
@@ -380,8 +425,10 @@ numeric
 * @include hide-text()隐藏文本
 * @include replace-text()图片替换文本
 * @include replace-text-with-dimensions(）自动匹配图片与容器的宽高
+
 ####(10)css3
 @include opacity(0.9)
+
 
 #javascript
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/20.png)
