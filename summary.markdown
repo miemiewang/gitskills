@@ -20,6 +20,7 @@ DOCTYPE标签是一种标准通用标记语言的文档类型声明，它的目�
 *  Safari:webkit内核
 *  Opera: 以前是presto内核，Opera现已改用Google Chrome的Blink内核
 *  Chrome:Blink(基于webkit，Google与Opera Software共同开发)
+
 ####（5）浏览器的怪异模式和标准模式：
 要想写出跨浏览器的CSS，必须知道浏览器解析CSS的两种模式：标准模式(strict mode)和怪异模式(quirks mode)。  
 标准模式是指，浏览器按W3C标准解析执行代码；怪异模式则是使用浏览器自己的方式解析执行代码，因为不同浏览器解析执行的方式不一样，所以我们称之为怪异模式。浏览器解析时到底使用标准模式还是怪异模式，与网页中的DTD声明直接相关，DTD声明定义了标准文档的类型（标准模式解析）文档类型，会使浏览器使用相应的方式加载网页并显示，忽略DTD声明,将使网页进入怪异模式(quirks mode)。
@@ -45,6 +46,7 @@ DOCTYPE标签是一种标准通用标记语言的文档类型声明，它的目�
 <p>html： 对大小写不敏感； 标签不必成对出现；<br/>
 XHML:对大小写敏感，必须是小写的； 标签必须成对出现，有开始标签就必须有结束标签； 属性值必须在引号之内； 不支持属性最小化( eg：正确：`<input checked='checked'> `
 错误：`<input checked> ` ); name属性不赞成使用，以后会被淘汰； 空元素也要结束标签：如：`<br/>`,`<hr/>`(水平分割线) <p>
+
 ####（9）src与href的区别： 
 * src用于替换当前元素，href用于在当前文档和引用资源之间确立联系。
 * src是source的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求src资源时会将其指向的资源下载并应用到文档内，例如js脚本，img图片和frame等元素。`<script src =”js.js”></script>`当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。
@@ -433,11 +435,13 @@ numeric
 #javascript
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/20.png)
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/21.png)
+
 ####（1）标准模式与严格模式的区别
 * 不能隐式声明和定义变量  
 * 对象的属性不能重名  
 * Argument.callee会报错  
 * 不能使用with语句
+
 ####（2）数据类型
 * Undefined:
 转换：string(undefined),boolean(false),number(NaN)
@@ -465,6 +469,7 @@ Object的每个实例都有下列属性和方法
  * toLocalString(),toString()，返回对象的字符串表示
  * propertyIsEnumerable()检查给定的属性是否能够使用for-in语句枚举
  valueOf()返回对象的字符串，数值或布尔值表示
+
 ####（3）类型识别
 * typeOf  
  * 可以识别标准类型（null除外）typeOf null//object
@@ -483,6 +488,7 @@ Object.prototype.toString.call(‘a’)==’[Object String]’
  * 不能识别原始类型（null,number,string.boolean.undefined）
  * 可以判别自定义对象类型  
 [1,2] instanceof Array==true;
+
 ####(4)js类型转换规则
 * 显示转换
  *  转换为数值：Number()、parseInt()、parseFloat()
@@ -493,6 +499,7 @@ Object.prototype.toString.call(‘a’)==’[Object String]’
  * 递增递减操作符，一元正负符号操作符
  * 加法、乘除、减号、取模运算符
  * 逻辑，相等、关系操作符
+
 ####（5）字符串常用方法
 * 获取类方法    
   * charAt()    
@@ -594,6 +601,7 @@ console.log(str.split(/\d/)); //返回["a", "b", "c", "d", "e"]
   * toLowerCase()和toUpperCase()
      * stringObject.toLowerCase() 
      * stringObject.toUpperCase()
+
 ####（6）数组常用方法
 * 数组元素的添加
     * arrayObj. push([item1 [item2 [. . . [itemN ]]]]);// 将一个或多个新元素添加到数组结尾，并返回数组新长度
@@ -615,6 +623,7 @@ console.log(str.split(/\d/)); //返回["a", "b", "c", "d", "e"]
 * 数组元素的字符串化
     * arrayObj.join(separator); //返回字符串，这个字符串将数组的每一个元素值连接在一起，中间用 separator 隔开。
     * toLocaleString 、toString 、valueOf：可以看作是join的特殊用法，不常用
+
 ####（7）数组去重的四种方法
 1.
 
@@ -675,6 +684,7 @@ console.log(str.split(/\d/)); //返回["a", "b", "c", "d", "e"]
 			}  
 			return re;  
 		}
+
 ####（8）递归算法
 * 
 
@@ -700,6 +710,7 @@ console.log(str.split(/\d/)); //返回["a", "b", "c", "d", "e"]
 		var anotherFact = fact;   
 		fact = null;   
 		alert(antherFact(4)); //结果为24.  
+
 ####（9）找到所有匹配字符串
 
 		var str='my name is mimi,do you remember me?';  
@@ -710,6 +721,7 @@ console.log(str.split(/\d/)); //返回["a", "b", "c", "d", "e"]
 			save=str.indexOf('m',save+1)  
 		}  
 		alert(arr);//0,5,11,13,25,27,32   
+
 ####（10）数组求和
 reduce()和reduceRight()  
 
@@ -718,6 +730,7 @@ reduce()和reduceRight()
 			Return prev+cur;  
 		});  
 4个参数：前一个值，当前值，项的索引和数组对象
+
 ####（11）正则表达式
 * test -- RegExp的test方法用来测试字符串是否匹配给出的匹配模式，返回布尔值；  
 * exec -- RegExp的exec方法返回包含第一个匹配的的数组或null；  
@@ -725,6 +738,7 @@ reduce()和reduceRight()
 * replace -- String的replace方法完成string的替换操作，支持正则表达式；
 * search -- 与String的indexof方法类似，不同的是search支持正则表达式，而不仅仅是字符串；
 * split -- 按照一定规则拆分字符串并将子字符串存储到数组中的String方法。
+
 ####（12）Math方法
 * floor(x) 对一个数进行下舍入。
 * max(x,y) 返回 x 和 y 中的最高值 
@@ -736,11 +750,14 @@ reduce()和reduceRight()
 * sqrt(x) 返回数的平方根
 * tan(x) 返回一个角的正切 
 * ceil(x) 对一个数进行上舍入。
+
 ####（13）变量作用域
 Js为静态作用域（词法作用域）：跟程序定义的位置有关，与执行顺序无关。Js没有块级作用域，只有函数作用域
+
 ####（14）函数声明与函数表达式
 1. 声明总是在作用域开始时先行解析；
 2. 表达式在遇到时候才运算。
+
 ####（15）闭包
 * 由函数和与其相关的引用环境组合而成
 * 允许函数访问其引用环境中的变量  
@@ -757,9 +774,12 @@ Js为静态作用域（词法作用域）：跟程序定义的位置有关，与
 };     
 alert(object.getNameFunc()());  //The Window
 闭包中的this指向调用它的对象，直接调用就指向window，这里的object.getNameFunc()()相当于，var a=object.getNameFunc(),执行a(),也是直接调用
+
 ###2.dom
+
 ####（1）querySelector和querySelectorAll
 获取的节点不是动态的，增删节点不会表现出来
+
 ####（2）js操作dom节点
 * 访问节点  
 document.getElementById(id);
@@ -817,10 +837,12 @@ nerbourNode.nextSlbling: 获取已知节点的下一个节点
 * 获取父节点  
 childNode.parentNode:得到已知节点的父节点
 * 替换节点方法replace(new,old)
+
 ####（3）事件流
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/22.png)  
 每当某一事件发生时，都会经过捕获阶段->处理阶段->冒泡阶段(有些浏览器不支持捕获) 
 捕获阶段是由上层元素到下层元素的顺序依次。而冒泡阶段则正相反。 
+
 ####（4）事件注册
 eventTarget.addEventListener(type.listener,false)||attachEvent(type.listener)  
 取消：eventTarget.removeEventListener(type.listener,false)||detachEvent(type.listener) 
@@ -852,6 +874,7 @@ event.stopImmediatePropagation()(w3c)其后的事件也被阻止
 阻止默认行为  
 event.returnValue=false(ie)  
 event.preventDefault(w3c)  
+
 ####（5）addEventListener和attachEvent的区别
 * 适应的浏览器版本不同
 前者在Mozilla中使用，后者在ie中
@@ -864,36 +887,45 @@ event.preventDefault(w3c)
 Function a(){alert(1)}  
 btn.addEventListener(‘click’,a,false)  
 btn.removeEventListener(‘click’,a)  
+
 ####(6)事件委托
 利用冒泡原理，把事件加到父级上，触发执行效果
 
 * 提高性能。例如：在有很多个li并需要为其添加事件时，依次触发很耗性能，可以利用事件委托加到ul上
 * 新添加的元素还会有之前的事件，例如：点击button动态添加Li,仍然会有之前的事件
+
 ####（7）mouse事件
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/23.png)
+
 ####（8）dom优缺点
 * DOM的优势主要表现在：易用性强，使用DOM时，将把所有的XML文档信息都存于内存中，并且遍历简单，支持XPath，增强了易用性。
 * DOM的缺点主要表现在：效率低，解析速度慢，内存占用量过高，对于大文件来说几乎不可能使用。另外效率低还表现在大量的消耗时间，因为使用DOM进行解析时，将为文档的每个element、attribute、processing- instrUCtion和comment都创建一个对象，这样在DOM机制中所运用的大量对象的创建和销毁无疑会影响其效率。
+
 ###3.面向对象
+
 ####(1)程序设计方法：  
 面向过程：以过程为中心，自顶向下逐一细化  
 面向对象：对象作为程序的基本单元，程序分解为数据和相关操作
+
 ####(2)面向对象：  
 * 基本概念：  
 类，对象  
 属性，方法  
 * 基本特性：  
 继承，封装，多态  
+
 ####(3)js中的面向对象
 * constructor（构造器）
 * 创建构造器的三种方法：  
 Function Employee(){}  
 Var Employee=function(){}  
 Var Employee=new function(){}
+
 ####(4)new关键字完成三个工作
 * 创建一个对象
 * 将该对象的_proto_指向函数的prototype
 * 调用该函数
+
 ####(5) 原型模式和基于原型继承的js对象系统
 原型编程范型包括以下规则：  
 
@@ -926,6 +958,7 @@ Js基本类型包括：undefined,boolean,string,number
 `alert(a.__proto__);//function Empty(){}`  
 `alert(b.__proto__)//function Empty(){}`  
 `alert(c.__proto__===b.prototype)//true  `
+
 ####(6)js面向对象中this的指向
 * 作为对象的方法调用  
     * 当函数作为该对象的方法被调用时，this指向该对象  
@@ -981,6 +1014,7 @@ Eval(‘alert(this)’);
     * This的总结：
   
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/6.png)
+
 ####（7）call或apply的区别和用法
 * 区别：传入参数形式不同，apply接受两个参数，第一个参数指定了函数体内this的指向，apply的二个参数作为一个带下标的集合，可以为数组也可以为类数组，apply方法把这个集合中的元素作为参数传递给被调用的函数。Call传入的参数数量不固定，从第二个参数开始往后，每个参数被依次传入函数  
 Func.apply(null,[1,2,3]);  
@@ -1027,6 +1061,7 @@ Func.call(null,1,2,3);
 			}  
 			var c=new b();  
 			c.getName();//wangy  
+
 ####（8）原型链
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/26.png)
 
@@ -1041,6 +1076,7 @@ Func.call(null,1,2,3);
 		}
 * 要想取得对象上所有可枚举的实例属性，可以使用Object.keys()方法，该方法接受一个对象作为参数，返回一个包含所有可枚举属性的字符串数组
 * 要想得到所有实例属性，无论可枚举，可以使用Object.getOwnPropertyNames(),使用方法同上
+
 ####(9)原型的动态性
 * 我们对原型对象所做的任何修改都能立即从实例上反映出来，即使是先创建了实例后修改原型也照样如此
 
@@ -1063,6 +1099,7 @@ Func.call(null,1,2,3);
 		}  
 		friend.sayName()//error  
 重写原型对象切断了现有原型与任何之前已经存在的对象实例之间的联系，它们引用的仍是最初的原型
+
 ####(10)继承
 * 原型链继承  
 
@@ -1178,17 +1215,22 @@ Func.call(null,1,2,3);
 var c=clone2(obj);  
 c.name.num='wangqian';  
 Alert(obj.name.num)//wangyang
+
 ###4.ajax
+
 ####（1）常见http状态码
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/4.png)
+
 ####（2）ajax调用示例
 ![](https://raw.githubusercontent.com/miemiewang/gitskills/master/images/27.png)
+
 ####（3）readyState
 * 0：未初始化，对象已经创建，还没有调用open方法
 * 1：载入，已经调用open方法，还没发送请求
 * 2：载入完成，请求已经发送完成
 * 3：交互，可以接收到部分响应数据
 * 4：完成，已经接收到全部数据，并且连接被关闭
+
 ####（4）兼容性  
  if (window.ActiveXObject) {      
        &nbsp;&nbsp;&nbsp;&nbsp; xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");      
@@ -1196,6 +1238,7 @@ Alert(obj.name.num)//wangyang
     else if (window.XMLHttpRequest) {      
        &nbsp;&nbsp;&nbsp;&nbsp; xmlHttp = new XMLHttpRequest();      
 }    
+
 ####（5）ajax方法封装
 
     function ajax(method, url, data, success) { 
@@ -1229,6 +1272,7 @@ Alert(obj.name.num)//wangyang
 		}  
 	}  
     }
+
 ####（6）json
 * JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式，采用完全独立于语言的文本格式，是理想的数据交换格式。  
 * 在JSON中，有两种结构：对象和数组。  
@@ -1249,6 +1293,7 @@ Alert(obj.name.num)//wangyang
 		var last=obj.toJSONString(); //将JSON对象转化为JSON字符 	
 		或者
 		var last=JSON.stringify(obj); //将JSON对象转化为JSON字符
+
 ####（7）Ajax优缺点
 * 优点：   
   * 可以使得页面不重载全部内容的情况下加载局部内容，降低数据传输量。
@@ -1261,6 +1306,7 @@ Alert(obj.name.num)//wangyang
   *  可能造成请求数的增加
 　 
   * 跨域问题限制
+
 ####（8）ajax跨域
 * Cors
 * jsonP
@@ -1293,6 +1339,7 @@ Alert(obj.name.num)//wangyang
 				}
 			}
 		}
+
 ####（9）jquery中的ajax封装
 * 快捷API  
 只有返回成功才执行回调  
@@ -1311,35 +1358,47 @@ $.serialize()序列化表单
 Eg:$.serialize(‘#form’)//username=’wy’&password=’1234’  
 $.serializeArray()将表单中的各个字段序列化为一个数组  
 [{name:’username’,value:’wy’},{name:’password’,value:’1234’}]
+
 ####（10）使用get和post的区别
 * 使用Get请求时,参数在URL中显示,而使用Post方式,则不会显示出来
 * 使用Get请求发送数据量小,Post请求发送数据量大
 * get请求需注意缓存问题,post请求不需担心这个问题
 * post请求必须设置Content-Type值为application/x-form-www-urlencoded
 * 发送请求时,因为get请求的参数都在url里,所以send函数发送的参数为null,而post请求在使用send方法时,却需赋予其参数。
+
 ####（11）解决get缓存问题
 * get请求URL后加字符串，让浏览器认为不是相同请求
 * 在ajax发送请求前加XMLhttpRequest.setRequestHeader(‘cache-control’,’no-cache’)
 * 使用post代替get
+
 # Jquery部分
+
 ###1.window.onload与$(document).ready()的对比
+
 ####（1）执行时机
 前者必须等待网页中所有的内容加载完毕后（包括图片）才能执行，后者网页中所有dom结构绘制完毕后就执行，可能dom元素关联的东西并没有加载完
+
 ####（2）编写个数
 前者不能同时编写多个，后者能
+
 ####（3）前者无简写，后者为$(function(){})
+
 ###2.$(this)和this的区别
 $(this) 返回一个 jQuery 对象，你可以对它调用多个 jQuery 方法，比如用 text() 获取文本，用val() 获取值等等。而 this 代表当前元素，它是 JavaScript 关键词中的一个，表示上下文中的当前 DOM 元素。你不能对它调用 jQuery 方法，直到它被 $() 函数包裹，例如 $(this)。
+
 ###3.使用 CDN 加载 jQuery 库的主要优势是什么 ? 
 除了报错节省服务器带宽以及更快的下载速度这许多的好处之外, 最重要的是，如果浏览器已经从同一个CDN下载类相同的 jQuery 版本, 那么它就不会再去下载它一次. 因此今时今日，许多公共的网站都将jQuery用于用户交互和动画, 如果浏览器已经有了下载好的jQuery库，网站就能有非常好的展示机会。
+
 ###4.删除节点的方法及区别  
 Remove()该节点所包含的后代元素将同时被删除，返回值为一个指向已被删除节点的引用，也可以通过传递参数选择性删除元素  
 Detach()所有绑定的事件，附加的数据会保留下来  
 Empty()清空元素中的所有后代节点  
+
 ###5.attr()和prop()的区别
 * 添加属性名称该属性就会生效，用prop()
 * 具有true,false两个属性用prop()
 * 其余用attr()
+
 ###6.窗口  
 $(window).width()//窗口可视区宽度  
 $(document).width()//窗口文档宽度  
@@ -1347,10 +1406,12 @@ $(document.body).width()//窗口文档body的宽度
 $(document.body).outerwidth()//padding+border  
 $(document.body).outerwidth(true)//P+b+margin  
 $(document).scrollTop()
+
 ###7.事件冒泡   
 event.stopPropagation()阻止冒泡  
 event.preventDefault()阻止默认行为  
 Return false 以上两者一起阻止  
+
 ###8.事件对象属性  
 Event.type事件类型  
 Event.target获取触发事件的元素  
@@ -1359,16 +1420,20 @@ event.pageX  event.pageY鼠标距窗口文档左边和顶部的距离
 Event.which获取鼠标左中右键  
 1=左   2=中    3=右  
 Event.matakey获取ctrl按键
+
 ###9.stop([clearQ],[gotoEnd])  
 第一个参数代表是否要清空未执行完的动画  
 第二个代表是否将正在执行的动画跳转到末状态  
 直接使用stop()会立即停止当前在进行的动画，执行队列中下一个动画
+
 ###10.$.map()与$.each()  
 $.map([0.1.2],function(n){  
 return n>0?n+1:null;})//[2,3]    
 两者方法类似，通过循环每个对象或者数组的“项”执行回调函数来实现对数组或对象的操作，不同点在于each()返回的是原来的数组，而map()会创建新数组，each()中的this指向当前数组或对象，map指向window
+
 ###11.$.each()和$().each()
 前者可以遍历任何集合，后者用于jquery对象的遍历，如dom操作
+
 ###12.$.proxy()
 `<input type=’button’ name=’我是按钮的name’/>`
 		
@@ -1385,9 +1450,11 @@ $.proxy()类似于apply,改变执行上下文
 $.proxy(a,b)  
 (1)a为函数，b为该函数的对象所有  
 (2)A为对象，b为该对象里的属性，把a作为对象传入b中，改变this
+
 ###13.mouseenter和mouseover  
 前者不冒泡，后者冒泡  
 前者只在鼠标穿过被选元素时触发事件，后者无论穿过被选元素还是子元素都触发
+
 ###14.事件处理方法  
 Bind(),live(),on(),delegate()  
 
@@ -1396,9 +1463,11 @@ Bind(),live(),on(),delegate()
 不同：
 * Bind()只针对已存在的元素进行事件的设置
 Live(),on(),delegate()均支持未来新添加元素的事件设置
+
 ###15.focusin,focus,focusout,blur  
 Focus和blur在元素本身产生  
 Focusin和focusout在元素包含的元素中产生，也就是可以在父元素上检测子元素失去焦点的情况
+
 ###16.queue()和dequeue()
 用queue()把函数加入队列
 用dequeue()将函数数组中的第一个函数取出，并执行
